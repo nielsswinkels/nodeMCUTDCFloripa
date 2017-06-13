@@ -1,10 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
-#define FIREBASE_HOST "Sua URL do FIrebase"
-#define FIREBASE_AUTH "Chave Secreta do Banco"
-#define WIFI_SSID "NOME DO WIFI"
-#define WIFI_PASSWORD "SENHA"
+#define FIREBASE_HOST "Sua URL do FIrebase" // url of your firebase database
+                                            // for example: "mydatabase.firebaseio.com"
+#define FIREBASE_AUTH "Chave Secreta do Banco" // database secret
+#define WIFI_SSID "NOME DO WIFI"  // SSID (=name) of wifi
+#define WIFI_PASSWORD "SENHA" // wifi password
 
 int buttonState = 0;
 
@@ -14,7 +15,7 @@ void setup() {
   pinMode(13, OUTPUT);
   pinMode(0, INPUT);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  Serial.print("conectando...");
+  Serial.print("conectando..."); // connecting
    
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -22,7 +23,7 @@ void setup() {
   }
 
   Serial.println();
-  Serial.print("conectado a rede: ");
+  Serial.print("conectado a rede: "); // connected to the network
   Serial.println(WiFi.localIP());
   
   // Conecta ao Firebase 
